@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+
+  background-color: hsl(207, 60%, 15%);
+}
+
+.start_btn {
+  font: inherit;
+
+  padding: 5px 20px;
+
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.start_btn:focus {
+  box-shadow: 0 0 0 2px #ccc;
+}

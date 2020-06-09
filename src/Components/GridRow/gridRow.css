@@ -1,0 +1,9 @@
+.row {
+  display: grid;
+
+  gap: 1px;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 1px;
+}

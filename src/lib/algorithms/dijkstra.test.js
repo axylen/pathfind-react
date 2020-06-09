@@ -1,4 +1,4 @@
-import WeightGrapg from './weightGraph';
+import WeightGrapg from '../weightGraph';
 import { findPath, findPathBySteps } from './dijkstra';
 
 const graph = new WeightGrapg([

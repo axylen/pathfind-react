@@ -1,0 +1,51 @@
+.cell {
+  position: relative;
+
+  padding-top: 100%;
+
+  background-color: #fff;
+}
+
+.cell::before,
+.cell::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  content: '';
+  transition: transform 0.1s ease-out;
+  transform: scale(0);
+}
+
+.cell_visited::before {
+  transform: scale(1);
+
+  background-color: hsl(207, 20%, 65%);
+}
+
+.cell_wall::before {
+  transform: scale(1);
+
+  background-color: hsl(207, 20%, 35%);
+}
+
+.cell_path::before {
+  transform: scale(1);
+
+  background-color: hsl(47, 95%, 75%);
+}
+
+.cell_start::after {
+  transform: scale(0.5);
+
+  background-color: hsl(0, 95%, 65%);
+}
+
+.cell_finish::after {
+  transform: scale(0.5);
+
+  background-color: hsl(236, 95%, 55%);
+}

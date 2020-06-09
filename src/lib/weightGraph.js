@@ -1,7 +1,11 @@
 class WeightGrapg {
   adjacencyList = {};
-  constructor(cells = []) {
-    this.from2dArray(cells);
+  values = [];
+
+  get = (v) => this.values[v];
+
+  constructor(cells) {
+    if (cells) this.from2dArray(cells);
   }
 
   from2dArray = (arr) => {
@@ -29,7 +33,10 @@ class WeightGrapg {
   };
 
   addVertex = (vertex) => {
-    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    if (!this.adjacencyList[vertex]) {
+      this.adjacencyList[vertex] = [];
+      this.values[vertex] = vertex;
+    }
   };
 
   addEdge = (v1, v2, weight = 1) => {

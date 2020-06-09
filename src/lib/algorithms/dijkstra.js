@@ -1,4 +1,4 @@
-import PriorityQueue from './priorityQueue';
+import PriorityQueue from '../priorityQueue';
 
 const buildInitialState = (graph, start) => {
   const nodes = new PriorityQueue();
@@ -65,4 +65,26 @@ const findPath = (graph, from, to) => {
   }
 };
 
-export { findPath, findPathBySteps };
+function* findPathByStepsWrap(graph, from, to) {
+  const find = findPathBySteps(graph, from, to);
+
+  let stepCount = 1;
+  let value, done;
+
+  while (true) {
+    const bulkValue = [];
+
+    for (let i = 0; i < stepCount; i++) {
+      ({ value, done } = find.next());
+      if (done) {
+        if (bulkValue.length > 0) yield bulkValue;
+        return value;
+      }
+      bulkValue.push(...value);
+    }
+
+    stepCount = (yield bulkValue) ?? 1;
+  }
+}
+
+export { findPath, findPathByStepsWrap as findPathBySteps };
